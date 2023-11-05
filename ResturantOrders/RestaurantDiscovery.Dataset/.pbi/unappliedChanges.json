@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "conceptualSchemaSettings": {},
+  "queries": [
+    {
+      "name": "Balaji Fast Food Sales",
+      "navigationStepName": "Navigation",
+      "text": [
+        "let",
+        "    Source = Csv.Document(File.Contents(\"C:\\Users\\gosia\\Documents\\Self-development\\Projects\\PowerBIProject_RestaurantOrders\\Balaji Fast Food Sales.csv\"),[Delimiter=\",\", Columns=10, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+        "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+        "    #\"Replaced Value\" = Table.ReplaceValue(#\"Promoted Headers\",\"-\",\"/\",Replacer.ReplaceText,{\"date\"}),",
+        "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Replaced Value\",{{\"order_id\", Int64.Type}, {\"date\", type date}, {\"item_name\", type text}, {\"item_type\", type text}, {\"item_price\", Int64.Type}, {\"quantity\", Int64.Type}, {\"transaction_amount\", Int64.Type}, {\"transaction_type\", type text}, {\"received_by\", type text}, {\"time_of_sale\", type text}})",
+        "in",
+        "    #\"Changed Type\""
+      ],
+      "isDirectQuery": false,
+      "resultType": "Table"
+    }
+  ],
+  "queryGroups": [],
+  "culture": "en-GB",
+  "firewallEnabled": true
+}
