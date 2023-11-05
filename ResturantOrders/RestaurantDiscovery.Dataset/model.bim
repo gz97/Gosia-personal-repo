@@ -1,5 +1,5 @@
 {
-  "compatibilityLevel": 1550,
+  "compatibilityLevel": 1567,
   "model": {
     "annotations": [
       {
@@ -13,6 +13,10 @@
       {
         "name": "PBI_ProTooling",
         "value": "[\"DevMode\"]"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"FACT.Orders\"]"
       }
     ],
     "culture": "en-US",
@@ -27,6 +31,203 @@
           },
           "contentType": "json"
         }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-GB",
+    "tables": [
+      {
+        "name": "FACT.Orders",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "Name"
+          }
+        ],
+        "columns": [
+          {
+            "name": "order_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6df0fb2c-7543-44fa-a37f-54decf84e246",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OrderDate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "d69096d0-4356-4ae8-9337-07d912afd85c",
+            "sourceColumn": "OrderDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ItemName",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "38a23709-0f62-42f5-83ef-51617e510cbc",
+            "sourceColumn": "ItemName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ItemType",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9ae8a660-3b4a-41fa-81fb-69cdcc17225e",
+            "sourceColumn": "ItemType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ItemPrice",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "c78d9c13-e5f2-46da-9eba-1994a8757698",
+            "sourceColumn": "ItemPrice",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Quantity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3357abd7-fe55-447a-9042-886d811cdd12",
+            "sourceColumn": "Quantity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "OrderAmount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "e1dd6cca-daf5-4f5e-a9c3-e2c9b55eeb02",
+            "sourceColumn": "OrderAmount",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TransactionType",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2c6b23c0-26b1-4652-90cb-22d023077b2d",
+            "sourceColumn": "TransactionType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CustomerGender",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0babedbf-8dbb-405f-bad5-9960640fc90f",
+            "sourceColumn": "CustomerGender",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TimeOfSale",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0e3d7e0f-613e-40d2-90a3-74ff95dd1443",
+            "sourceColumn": "TimeOfSale",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "b291a684-2e6d-4ee3-b433-b6cb1a86136e",
+        "partitions": [
+          {
+            "name": "FACT.Orders",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\Users\\gosia\\Documents\\Self-development\\Projects\\PowerBIProject_RestaurantOrders\\Balaji Fast Food Sales.csv\"),[Delimiter=\",\", Columns=10, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Replaced Value\" = Table.ReplaceValue(#\"Promoted Headers\",\"-\",\"/\",Replacer.ReplaceText,{\"date\"}),",
+                "    #\"Changed Type with Locale\" = Table.TransformColumnTypes(#\"Replaced Value\", {{\"date\", type date}}, \"en-US\"),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Changed Type with Locale\",{{\"item_price\", type number}, {\"quantity\", Int64.Type}, {\"transaction_amount\", type number}}),",
+                "    #\"Replaced Value1\" = Table.ReplaceValue(#\"Changed Type\",\"\",\"<missing>\",Replacer.ReplaceValue,{\"transaction_type\"}),",
+                "    #\"Replaced Value2\" = Table.ReplaceValue(#\"Replaced Value1\",\"Mr.\",\"Male\",Replacer.ReplaceText,{\"received_by\"}),",
+                "    #\"Replaced Value3\" = Table.ReplaceValue(#\"Replaced Value2\",\"Mrs.\",\"Female\",Replacer.ReplaceText,{\"received_by\"}),",
+                "    #\"Replaced Value4\" = Table.ReplaceValue(#\"Replaced Value3\",\"Online\",\"Card\",Replacer.ReplaceText,{\"transaction_type\"}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Replaced Value4\",{{\"date\", \"OrderDate\"}, {\"item_name\", \"ItemName\"}, {\"item_type\", \"ItemType\"}, {\"item_price\", \"ItemPrice\"}, {\"quantity\", \"Quantity\"}, {\"transaction_amount\", \"OrderAmount\"}, {\"transaction_type\", \"TransactionType\"}, {\"received_by\", \"CustomerGender\"}, {\"time_of_sale\", \"TimeOfSale\"}})",
+                "in",
+                "    #\"Renamed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }

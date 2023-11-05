@@ -27,6 +27,27 @@
       "name": "ReportSection",
       "visualContainers": [],
       "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Checklist",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection7d859f4275c1c740402b",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"a8c6388b3a0790eeec03\",\"layouts\":[{\"id\":0,\"position\":{\"x\":535.4159592529711,\"y\":209.03225806451613,\"z\":0,\"width\":279.9320882852292,\"height\":279.9320882852292,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Create DIM DATE\"}],\"listType\":\"ordered\"},{\"textRuns\":[{\"value\":\"Tidy up the names of steps in Power Query\"}],\"listType\":\"ordered\"},{\"textRuns\":[{\"value\":\"Page 1 EDA - show what data there is\"}],\"listType\":\"ordered\"},{\"textRuns\":[{\"value\":\"Page 2 - Analysis of data\"}],\"listType\":\"ordered\"}]}}]}}}",
+          "filters": "[]",
+          "height": 279.93,
+          "width": 279.93,
+          "x": 535.42,
+          "y": 209.03,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
     }
   ]
 }
