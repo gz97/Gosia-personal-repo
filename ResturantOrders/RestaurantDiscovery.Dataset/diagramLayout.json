@@ -11,7 +11,7 @@
         {
           "location": {
             "x": 89,
-            "y": 177
+            "y": 262
           },
           "nodeIndex": "FACT.Orders",
           "nodeLineageTag": "b291a684-2e6d-4ee3-b433-b6cb1a86136e",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 496,
-            "y": 170
+            "y": 255
           },
           "nodeIndex": "DIM.Date",
           "nodeLineageTag": "1cf4b968-5925-4368-8df5-3d843a0e8e5a",
@@ -33,6 +33,19 @@
             "width": 234
           },
           "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 691,
+            "y": 133
+          },
+          "nodeIndex": "Measures table",
+          "nodeLineageTag": "9ad04129-f694-4e47-89c8-a5f500c02f9f",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
