@@ -1,2 +1,2 @@
 # PowerBIProjects
-Repository of all Power BI Project 
+Repository of all Power BI Projects
